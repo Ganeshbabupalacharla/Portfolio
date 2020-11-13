@@ -1,23 +1,14 @@
 const express=require('express');
-const mongoose=require('mongoose');
+const connectDB=require('./config/db');
 const bodyParser=require('body-parser');
 const path=require('path');
-
 const form=require('./Routes/api/form');
 const app=express();
+connectDB();
 
 //bodyparser middleware
 
 app.use(bodyParser.json());
-
-//DB config
-const db=require('./config/keys').mongoURI;
-
-//connect mongodb
-mongoose.connect(db)
-  .then(()=> console.log('mongodb connected'))
-  .catch(err=>console.log(err));
-
 //use routes
 app.use('/api/form',form);
 
