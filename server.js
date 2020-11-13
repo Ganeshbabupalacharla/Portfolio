@@ -14,9 +14,9 @@ app.use('/api/form',require('./Routes/api/form'));
 //serve static assets in production
 if(process.env.NODE_ENV === 'production'){
   //set static folder
-  app.use(express.static('client/build'));
+  app.use(express.static('/client/build'));
   app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname,'/client/build/index.html'));
   });
 };
 
