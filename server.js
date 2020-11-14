@@ -8,7 +8,7 @@ connectDB();
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, './client/build')));
 //use routes
 app.use('/api/form',require('./Routes/api/form'));
 
@@ -16,7 +16,7 @@ app.use('/api/form',require('./Routes/api/form'));
 
   //set static folder
   app.get('*', (request, response) => {
-    return response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    return response.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
 const port=process.env.PORT || 5000;
